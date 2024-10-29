@@ -1,0 +1,80 @@
+{
+    "header":[
+        "Home",
+        "Products",
+        "Cart",
+        "Signup / Login",
+        "Test Cases",
+        "API Testing",
+        "Video Tutorials",
+        "Contact us"
+        ],
+
+    "url":{
+
+        "url": "https://automationexercise.com"
+    },
+
+    "signup_information":{
+
+        "name": "vanessa",
+        "password":"232323",
+        "months":"February",
+        "firstname":"Vanessa",
+        "lastname":"Melviane",
+        "compagny":"Maviance",
+        "address1":"lisbon",
+        "address2":"catar",
+        "country":"India",
+        "state":"yaounde",
+        "city":"logbaba",
+        "zipcode":12121,
+        "mobile_number":23224566
+       
+
+
+
+    },
+
+    "information_account":[
+        "Enter Account Information",
+        "Title",
+        "Name",
+        "Email",
+        "Password",
+        "Date of Birth",
+        "Sign up for our newsletter!",
+        "Receive special offers from our partners!",
+        "Address Information",
+        "First name",
+        "Last name",
+        "Company",
+        "Address * (Street address, P.O. Box, Company name, etc.)",
+        "Address 2",
+        "Country",
+        "State",
+        "City",
+        "Zipcode",
+        "Mobile Number",
+        "Create Account"
+       
+
+    ],
+    "sucess_information":[
+        "Account Created!",
+        " Congratulations! Your new account has been successfully created!",
+        "You can now take advantage of member privileges to enhance your online shopping experience with us."
+       
+    ],
+
+    "after_login_signup":[
+        "Logout",
+        "Delete Account",
+        "Logged in as Vanessa"
+    ]
+
+
+    
+
+    
+}

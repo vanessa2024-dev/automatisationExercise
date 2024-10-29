@@ -174,7 +174,7 @@ describe('tester les differentes fonctionnalites du site', ()=>{
 
         
     })
-    it.only(' Verifier la souscription sur la page d accueil', ()=>{
+    it(' Verifier la souscription sur la page d accueil', ()=>{
 
         cy.get('[id="footer"]').scrollIntoView().should('be.visible')
         cy.contains('Subscription')
@@ -184,7 +184,59 @@ describe('tester les differentes fonctionnalites du site', ()=>{
         cy.contains('You have been successfully subscribed!')
     })
 
-    it('', ()=>{
-        
+    it('verifier la souscription sur la page des cartes', ()=>{
+        cy.get('.shop-menu > .nav > :nth-child(2)').click()
+        cy.get('[id="footer"]').scrollIntoView().should('be.visible')
+        cy.contains('Subscription')
+        cy.contains('Get the most recent updates from our site and be updated your self...')
+        cy.get('[id="susbscribe_email"]').should('be.visible').type('vanessa@gmail.com')
+        cy.get('[id="subscribe"]').should('be.visible').click()
+        cy.contains('You have been successfully subscribed!')
     })
-})
+
+    it('verifier la quantite des produits sur la carte', ()=>{
+        // button View cart
+        cy.get(':nth-child(3) > .product-image-wrapper > .choose > .nav > li > a').should('be.visible').click()
+        // image du produit
+        cy.get('.view-product > img').should('be.visible')
+        // grande div contenant les information sur le produit
+        cy.get('[class="product-information"]').should('be.visible')
+        cy.contains('Blue Top')
+        cy.contains('Category: Women > Tops')
+        cy.contains('Rs. 500')
+        cy.contains('Quantity')
+        cy.contains('Availability: In Stock')
+        cy.contains('Condition: New')
+        cy.contains('Brand: Polo')
+        // champ de la quantite
+        cy.get('[id="quantity"]').clear().type(2)
+        // button Add to cart
+        cy.get(':nth-child(5) > .btn').click()
+        cy.contains('Added')
+        cy.contains('Your product has been added to cart.')
+        cy.contains('View Cart')
+        // button Continue Shopping sur la modal
+        cy.get('.modal-footer > .btn').click()
+
+
+        // element du formulaire
+        cy.get('.category-tab > :nth-child(1) > .nav').contains('Write Your Review').should('be.visible')
+        cy.get('#name').should('be.visible')
+        cy.get('#email').should('be.visible')
+        cy.get('#review').should('be.visible')
+        cy.get('#button-review').should('be.visible')
+
+        
+
+
+    })
+    it.only('ajouter un produit a la carte',()=>{
+        // button View cart
+        // cy.get(':nth-child(3) > .product-image-wrapper > .choose > .nav > li > a').should('be.visible').click()
+        // element sur le hover
+        cy.get('[id="cartModal"]').trigger('mouseover', {force:true})
+        cy.get(':nth-child(5) > .btn').click({force:true})
+        
+
+    })
+}) 

@@ -13,7 +13,8 @@ describe('test negatif' , ()=>{
         cy.get('[class="shop-menu pull-right"]').contains('Contact us')
 
     })
-    it('se connecter avec un email ou un mot de pass invalid',()=>{
+    it('se connecter avec des identifiants invalid',()=>{
+        //button signup
         cy.get('.shop-menu > .nav > :nth-child(4)').click()
         cy.contains('Login to your account')
         cy.get('[data-qa="login-email" ]').type('line27@gmail.com')
@@ -22,7 +23,38 @@ describe('test negatif' , ()=>{
         cy.contains('Your email or password is incorrect! ')
 
     })
-    it ('creer un compte avec un email deja utilise', ()=>{
+
+    it('se connecter avec un email manquant',()=>{
+        //button signup
+        cy.get('.shop-menu > .nav > :nth-child(4)').click()
+        cy.contains('Login to your account')
+        cy.get('[data-qa="login-email" ]').should('have.prop','required')
+        cy.get('[data-qa="login-password" ]').type('232323')
+        cy.get('[data-qa="login-button"]').click()
+        // cy.contains('Your email or password is incorrect! ')
+
+    })
+    it('se connecter avec mot de pass  manquant',()=>{
+        //button signup
+        cy.get('.shop-menu > .nav > :nth-child(4)').click()
+        cy.contains('Login to your account')
+        cy.get('[data-qa="login-email" ]').should('be.visible').type('line27@gmail.com')
+        cy.get('[data-qa="login-password" ]').should('have.prop','required')
+        cy.get('[data-qa="login-button"]').click()
+        
+
+    })
+    it('se connecter avec un format d email invalid ',()=>{
+        //button signup
+        cy.get('.shop-menu > .nav > :nth-child(4)').click()
+        cy.contains('Login to your account')
+        cy.get('[data-qa="login-email" ]').type('line.com')
+        cy.get('[data-qa="login-password" ]').type('232323')
+        cy.get('[data-qa="login-button"]').click()
+        // cy.contains('Your email or password is incorrect! ')
+
+    })
+    it ('creer un compte avec email deja utilise', ()=>{
         cy.get('.shop-menu > .nav > :nth-child(4)').click()
         // login place
         cy.contains('Login to your account')
@@ -41,5 +73,41 @@ describe('test negatif' , ()=>{
 
     })
     
+    it ('creer un compte avec le nom  manquant', ()=>{
+        cy.get('.shop-menu > .nav > :nth-child(4)').click()
+        // login place
+        cy.contains('Login to your account')
+        cy.get('[data-qa="login-email" ]').should('be.visible')
+        cy.get('[data-qa="login-password" ]').should('be.visible')
+        // signup place
+        cy.contains(' New User Signup!')
+        cy.get('[data-qa="signup-name"]').should('be.visible')
+        cy.get('[data-qa="signup-email"]').should('be.visible')
+        cy.get('[data-qa="signup-button"]').contains('Signup').should('be.visible')
+        cy.get('[data-qa="signup-name"]').should('have.prop','required')
+        cy.get('[data-qa="signup-email"]').type('leslie27@gmail.com')
+        cy.get('[data-qa="signup-button"]').click()
+        // cy.contains('Email Address already exist!')
+
+
+    })
+    it ('creer un compte avec l email manquant', ()=>{
+        cy.get('.shop-menu > .nav > :nth-child(4)').click()
+        // login place
+        cy.contains('Login to your account')
+        cy.get('[data-qa="login-email" ]').should('be.visible')
+        cy.get('[data-qa="login-password" ]').should('be.visible')
+        // signup place
+        cy.contains(' New User Signup!') 
+        cy.get('[data-qa="signup-name"]').should('be.visible')
+        cy.get('[data-qa="signup-email"]').should('be.visible')
+        cy.get('[data-qa="signup-button"]').contains('Signup').should('be.visible')
+        cy.get('[data-qa="signup-name"]').type('vanessa')
+        cy.get('[data-qa="signup-email"]').should('have.prop','required')
+        cy.get('[data-qa="signup-button"]').click()
+        // cy.contains('Email Address already exist!')
+
+
+    })
     
 })
