@@ -1,34 +1,54 @@
+import { dataElement } from "./data_test_id"
+const dataIdElement =new dataElement()
+
 describe('se deconnecter du site',()=>{
     beforeEach(()=>{
-        cy.visit('https://automationexercise.com')
-        cy.contains('Home')
-        cy.get('[class="shop-menu pull-right"]').contains('Home')
-        cy.get('[class="shop-menu pull-right"]').contains('Products')
-        cy.get('[class="shop-menu pull-right"]').contains('Cart')
-        cy.get('[class="shop-menu pull-right"]').contains('Signup / Login')
-        cy.get('[class="shop-menu pull-right"]').contains('Test Cases')
-        cy.get('[class="shop-menu pull-right"]').contains('API Testing')
-        cy.get('[class="shop-menu pull-right"]').contains('Video Tutorials')
-        cy.get('[class="shop-menu pull-right"]').contains('Contact us')
+        cy.fixture(dataIdElement.fixture_path).then(( data_test)=>{
 
+            cy.visit(data_test.url.url)
+            
+        // verifier que tous les elements du header sont visible
+
+            cy.get(dataIdElement.shop_menu).then((headerElt)=>{
+                for(let elt of data_test.header){
+                    cy.get(headerElt).contains(elt)
+                }
+            })
+       }) 
     })
-    it('se deconnecter',()=>{
-        cy.get('.shop-menu > .nav > :nth-child(4)').click()
-        cy.get('[data-qa="login-email" ]').type('leslie27@gmail.com')
-        cy.get('[data-qa="login-password" ]').type('232323')
-        cy.get('[data-qa="login-button"]').click()
-        cy.get('[id="header"]').should('be.visible')
-        cy.get('[id="header"]').contains('Logout')
-        cy.get('[id="header"]').contains('Delete Account')
-        cy.get('[id="slider"]').should('be.visible')
-        cy.get('.shop-menu > .nav > :nth-child(4)').click()
-        cy.contains(' New User Signup!')
-        cy.contains('Login to your account')
-        cy.get('[data-qa="login-button"]').contains('Login').should('be.visible')
-        cy.get('[data-qa="login-email" ]').should('be.visible')
-        cy.get('[data-qa="login-password" ]').should('be.visible')
-        cy.get('[data-qa="login-email" ]').should('be.visible')
-        cy.get('[data-qa="login-password" ]').should('be.visible')
+
+    it('se loger avant de se deconnecter',()=>{
+        cy.fixture(dataIdElement.fixture_path).then((data_test)=>{
+            // button signup/Login
+            cy.get(dataIdElement.signup).click()
+            cy.get(dataIdElement.login_email).type(data_test.signup_information.email)
+            cy.get(dataIdElement.login_password).type(data_test.signup_information.password)
+            // button Login
+            cy.get(dataIdElement.login_button_submit).click()
+             // nouvelle informations sur le header
+
+             cy.get(dataIdElement.header_id).then(($elt)=>{
+                cy.get($elt).should('be.visible')
+
+                for(let elt of data_test.after_login_signup){
+                    cy.contains(elt)
+                }
+                
+            })
+            cy.get(dataIdElement.slide_id).should('be.visible')
+            // button Logout
+            cy.get(dataIdElement.signup).click()
+            cy.contains(data_test.signup_information.signup_text)
+            cy.contains(data_test.signup_information.login_text)
+            // redirection vers la page de connexion
+            
+            cy.get(dataIdElement.login_button_submit).contains('Login').should('be.visible')
+            cy.get(dataIdElement.login_email).should('be.visible')
+            cy.get(dataIdElement.login_password).should('be.visible')
+            
+
+        })
+        
 
 
 

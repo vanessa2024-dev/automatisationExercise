@@ -7,7 +7,13 @@
         "Test Cases",
         "API Testing",
         "Video Tutorials",
-        "Contact us"
+        "Contact us"],
+
+        "caroussel":[
+        " AutomationExercise Full-Fledged practice website for Automation Engineers",
+        "All QA engineers can use this website for automation practice and API testing either they are at beginner or advance level. This is for everybody to help them brush up their automation skills.",
+        "APIs list for practice",
+        "Test Cases"
         ],
 
     "url":{
@@ -18,7 +24,9 @@
     "signup_information":{
 
         "name": "vanessa",
-        "password":"232323",
+        "incorrect_email":"line.com",
+        "email":"vanessita11@gmail.com",
+        "password":"1212",
         "months":"February",
         "firstname":"Vanessa",
         "lastname":"Melviane",
@@ -29,7 +37,12 @@
         "state":"yaounde",
         "city":"logbaba",
         "zipcode":12121,
-        "mobile_number":23224566
+        "mobile_number":23224566,
+        "login_text":"Login to your account",
+        "button_login":"Login",
+        "signup_text":"New User Signup!",
+        "subject":"remerciment",
+        "message":"ce site m a permis d appliquer tous ce que j ai appris dans le QA"
        
 
 
@@ -66,12 +79,156 @@
         "You can now take advantage of member privileges to enhance your online shopping experience with us."
        
     ],
+    "message_echec":"Your email or password is incorrect!",
+    "signup_message_echec":"Email Address already exist!",
 
     "after_login_signup":[
         "Logout",
         "Delete Account",
-        "Logged in as Vanessa"
-    ]
+        "Logged in as vanessa"
+    ],
+
+    "contact_us_elt1":[
+        "Contact Us",
+        "Note: Below contact form is for testing purpose.",
+        "Get In Touch",
+        "We really appreciate your response to our website.",
+        "Kindly share your feedback with us at feedback@automationexercise.com.",
+        "If you have any suggestion areas or improvements, do let us know. We will definitely work on it.",
+        "Thank you",
+        "Submit"
+    ],
+        "contact_us_elt2":{
+            "success_text":"Success! Your details have been submitted successfully.",
+            "home":"Home"
+
+        },
+         "casdetest_page":[
+        "Test Cases",
+        "Feedback for Us",
+        "Below is the list of test Cases for you to practice the Automation. Click on the scenario for detailed Test Steps:",
+        "We have identified above scenarios and added in the list.",
+        "You can explore more test cases in the website and if you find new test scenario that is not covered in above list, do let us know. We will definitely add that in above list.",
+        "Test Case 1: Register User",
+        "Test Case 2: Login User with correct email and password",
+        "Test Case 3: Login User with incorrect email and password",
+        "Test Case 4: Logout User",
+        "Test Case 5: Register User with existing email",
+        "Test Case 6: Contact Us Form",
+        "Test Case 7: Verify Test Cases Page",
+        "Test Case 8: Verify All Products and product detail page",
+        "Test Case 9: Search Product",
+        "Test Case 10: Verify Subscription in home page",
+        "Test Case 11: Verify Subscription in Cart page",
+        "Test Case 12: Add Products in Cart",
+        "Test Case 13: Verify Product quantity in Cart",
+        "Test Case 14: Place Order: Register while Checkout",
+        "Test Case 15: Place Order: Register before Checkout",
+        "Test Case 16: Place Order: Login before Checkout",
+        "Test Case 17: Remove Products From Cart",
+        "Test Case 18: View Category Products",
+        "Test Case 19: View & Cart Brand Products",
+        "Test Case 20: Search Products and Verify Cart After Login",
+        "Test Case 21: Add review on product",
+        "Test Case 22: Add to cart from Recommended items",
+        "Test Case 23: Verify address details in checkout page",
+        "Test Case 24: Download Invoice after purchase order",
+        "Test Case 25: Verify Scroll Up using 'Arrow' button and Scroll Down functionality",
+        "Test Case 26: Verify Scroll Up without 'Arrow' button and Scroll Down functionality"
+        
+
+
+
+    ],
+    "produits":[
+        "Category",
+        "Women",
+        "Men",
+        "Kids",
+        "Brands",
+        "Polo",
+        "H&M",
+        "Madame",
+        "Mast & Harbour",
+        "Babyhug",
+        "Allen Solly Junior",
+        "Kookie Kids",
+        "Biba"
+        
+        
+       
+
+    ],
+    "items":[
+        "All Products",
+        "Add to cart"
+
+    ],
+    "product_element":[
+        "Blue Top",
+        "Category: Women > Tops",
+        "Rs. 500",
+        "Quantity",
+        "Availability: In Stock",
+        "Condition: New",
+        "Brand: Polo"
+    ],
+    "after_proceed_events":[
+        "Address Details",
+        "Your billing address",
+        "Your delivery address",
+        "Mrs. Vanessa Melviane",
+        "Maviance",
+        "lisbon",
+        "catar",
+        "logbaba yaounde 12121",
+        "India",
+        "23224566"
+
+
+    ],
+    "order_information":[
+        "Payment",
+        "Name on Card",
+        "Card Number",
+        "CVC",
+        "Expiration",
+        "Pay and Confirm Order"
+
+
+    ],
+    "payment_form_elt":{
+        "card_name":"Visa",
+        "number":5554545,
+        "cvc":4545,
+        "month":"juin",
+        "year":2028
+    },
+    "success_payment":[
+        "Order Placed!",
+        "Congratulations! Your order has been confirmed!",
+        "Download Invoice",
+        "Continue"
+
+
+    ],
+    "signup":"Signup",
+    "review":"Write Your Review",
+    "product_name":"polo",
+    "search":"Searched Products",
+    "souscription":"Subscription",
+    "footer_elt":"Get the most recent updates from our site and be updated your self...",
+    "success_souscription":"You have been successfully subscribed!",
+    "added":"Added",
+    "product_added":"Your product has been added to cart.",
+    "view_cart":"View Cart",
+    "write_your_review":"Write Your Review",
+    "checkout":"Checkout",
+    "register_login":"Register / Login account to proceed on checkout.",
+    "register_login_page":"Register / Login",
+    "placeholder_message":"If you would like to add a comment about your order, please write it in the field below."
+
+
 
 
     
