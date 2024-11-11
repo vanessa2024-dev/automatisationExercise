@@ -159,15 +159,23 @@
        
 
     ],
+    "women_products":[
+        "Dress",
+        "Tops",
+        "Saree"
+
+        
+    ],
+
     "items":[
         "All Products",
         "Add to cart"
 
     ],
     "product_element":[
-        "Blue Top",
-        "Category: Women > Tops",
-        "Rs. 500",
+        "Premium Polo ",
+        "Category: Men > Tshirts",
+        "Rs. 1500",
         "Quantity",
         "Availability: In Stock",
         "Condition: New",
@@ -212,6 +220,17 @@
 
 
     ],
+    "cart_infos_table":[
+        "Item",
+        "Description",
+        "Price",
+        "Quantity",
+        "Total"
+        
+
+    ],
+    
+    "shopping_cart":"Shopping Cart",
     "signup":"Signup",
     "review":"Write Your Review",
     "product_name":"polo",
@@ -226,7 +245,12 @@
     "checkout":"Checkout",
     "register_login":"Register / Login account to proceed on checkout.",
     "register_login_page":"Register / Login",
-    "placeholder_message":"If you would like to add a comment about your order, please write it in the field below."
+    "placeholder_message":"If you would like to add a comment about your order, please write it in the field below.",
+    "tableau_vide":"Cart is empty! Click here to buy products.",
+    "women_dress":"Women - Dress Products",
+    "polo_brand":"Brand - Polo Products",
+    "url_polo":"/brand_products/Polo",
+    "success_review":"Thank you for your review"
 
 
 

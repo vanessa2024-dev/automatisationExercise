@@ -23,6 +23,7 @@ export class dataElement{
     input_years='[data-qa="years"]'
     newletter='[id="newsletter"]'
     Option='[id="optin" ]'
+    featute_items='[class="features_items"]'
     firstname_input='[data-qa="first_name" ]'
     formulaire_surPage_produit='.category-tab > :nth-child(1) > .nav'
     lastname_input='[data-qa="last_name" ]'
@@ -39,6 +40,7 @@ export class dataElement{
     featute_items='.features_items'
     form='[id="form"]'
     button_continue='[data-qa="continue-button"]'
+    button_produit_horsConnexion='.shop-menu > .nav > :nth-child(2) > a'
     header_id='[id="header"]'
     review_id='[id="review"]'
     review_buttonId='[id="button-review"]'
@@ -69,14 +71,21 @@ export class dataElement{
     cart_items='[id="cart_items"]'
     card_on_name='[data-qa="name-on-card"]'
     card_on_number='[ data-qa="card-number"]'
+    cart_info_table='[id="cart_info_table"]'
     cvc='[data-qa="cvc"]'
     expiry_month='[data-qa="expiry-month"]'
     expiry_year='[data-qa="expiry-year"]'
     pay_button='[data-qa="pay-button"]'
+    polo_link='.brands-name > .nav > :nth-child(1) > a'
     product_button='.shop-menu > .nav > :nth-child(2)'
+    product_delete='[data-product-id="1"]'
     button_invoice='.col-sm-9 > .btn-default'
     subject='[data-qa="subject"]'
     contact_submit_form='[class="btn btn-primary pull-left submit_form"]'
+    click_here='#empty_cart > .text-center > a '
+    women_dress_id=':nth-child(1) > .panel-heading > .panel-title'
+    women_products='#Women > .panel-body > ul > :nth-child(1) > a'
+
 
 
 
@@ -85,9 +94,22 @@ export class dataElement{
         const randomNumber=Cypress._.random(0,1e6)
         return `user${randomNumber}@gmail.com`
     }
-    get (id){
-        const valueName=document.getElementById(id).value
-        return valueName
+   selector=document.querySelector('[data-qa="create-account"]')
+
+    event(){
+   
+
+   if(this.selector){
+
+    this.selector.addEventListener("click", recupere(()=>{
+        const first_name=document.querySelector(this.firstname_input)
+         return first_name}), false)}
+
+    else{
+        return null 
     }
+
+   
+   
     
-}
+}}

@@ -24,8 +24,8 @@ describe('automatisation des differents cas de tests du site automationExercise.
 
             // button signup/Login
             cy.get(dataIdElement.signup).click()
-            cy.get(dataIdElement.login_input).should('be.visible')
-            cy.get(dataIdElement.password_input).should('be.visible')
+            cy.get(dataIdElement.login_email).should('be.visible')
+            cy.get(dataIdElement.login_password).should('be.visible')
             cy.contains(data_test.signup_information.signup_text)
             cy.get(dataIdElement.login_button_submit).contains(data_test.signup_information.button_login).should('be.visible')
             cy.get(dataIdElement.signup_name).should('be.visible')
@@ -83,6 +83,10 @@ describe('automatisation des differents cas de tests du site automationExercise.
             cy.get(dataIdElement.slide_id).should('be.visible')
 
             // nouvelle informations sur le header
+            // cy.wrap(dataIdElement.event()).then((evenement)=>{
+            //     cy.log(`le nom de l utlisateur est : ${evenement}`)
+            //     cy.contains(` Logged in as ${evenement}`)
+            // })
 
                 cy.get(dataIdElement.header_id).then(()=>{
 
@@ -102,17 +106,17 @@ describe('automatisation des differents cas de tests du site automationExercise.
     })
     
     it('se connecter avec un email et mot de pass valide',()=>{
-        cy.fixture(dataIdElement.fixture_path).then(($elt)=>{
+        cy.fixture(dataIdElement.fixture_path).then((data_test)=>{
 
             cy.get(dataIdElement.signup).click()
-            cy.contains($elt.signup_information.login_text)
-            cy.get(dataIdElement.login_email).type($elt.signup_information.email)
-            cy.get(dataIdElement.login_password).type($elt.signup_information.password)
+            cy.contains(data_test.signup_information.login_text)
+            cy.get(dataIdElement.login_email).type(data_test.signup_information.email)
+            cy.get(dataIdElement.login_password).type(data_test.signup_information.password)
             cy.get(dataIdElement.login_button_submit).click()
             // nouvelle informations sur le header
 
             cy.get(dataIdElement.header_id).then(()=>{
-                for(let elt of $elt.after_login_signup){
+                for(let elt of data_test.after_login_signup){
                     cy.contains(elt)
                 }
             })

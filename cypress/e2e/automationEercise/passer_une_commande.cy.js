@@ -245,7 +245,7 @@ describe('passer une commande',()=>{
           });
  
         /**............................................................................................................... */
-       // connexion
+       // enregistrement
         
       // button signup
       cy.get(dataIdElemnt.signup_button_submit).click()
@@ -278,7 +278,7 @@ describe('passer une commande',()=>{
       cy.get(dataIdElemnt.city_input).type(data_test.signup_information.city)
       cy.get(dataIdElemnt.zipcode_input).type(data_test.signup_information.zipcode)
       cy.get(dataIdElemnt.mobile_number_input).type(data_test.signup_information.mobile_number)
-      // buton signup
+     // button create an  account
       cy.get(dataIdElemnt.create_account).click()
 
           // message de reussite
@@ -300,9 +300,9 @@ describe('passer une commande',()=>{
           }
           
       })
-
         cy.get(dataIdElemnt.slide_id).should('be.visible')
-        // fin de l enregistrement
+        // fin de l enregistrement.........................................
+
         // ajouter un nouveau produit
         cy.get(dataIdElemnt.button_produit).should('be.visible').click()
         // image du produit
@@ -373,8 +373,122 @@ describe('passer une commande',()=>{
     })
   })
 
-    it(' se connecter avant le paiement de la commande',()=>{
+    it.only(' se connecter avant le paiement de la commande',()=>{
+
+      cy.fixture(dataIdElemnt.fixture_path).then((data_test)=>{
+          cy.get(dataIdElemnt.signup).click()
+          cy.contains(data_test.signup_information.login_text)
+          cy.get(dataIdElemnt.login_email).type(data_test.signup_information.email)
+          cy.get(dataIdElemnt.login_password).type(data_test.signup_information.password)
+          cy.get(dataIdElemnt.login_button_submit).click()
+          // nouvelle informations sur le header
+
+          cy.get(dataIdElemnt.header_id).then(()=>{
+              for(let elt of data_test.after_login_signup){
+                  cy.contains(elt)
+            }
+        })
+
+
+         // ajouter un nouveau produit
+         cy.get(dataIdElemnt.button_produit).should('be.visible').click()
+         // image du produit
+         cy.get(dataIdElemnt.image).should('be.visible')
+         // grande div contenant les information sur le produit
+         cy.get(dataIdElemnt.product_information).should('be.visible')
+ 
+         cy.get(dataIdElemnt.product_information).then((productElt)=>{
+           for(let elt of data_test.product_element){
+               cy.get(productElt).contains(elt).should('be.visible')
+           }
+       })
+         // champ de la quantite
+         cy.get(dataIdElemnt.quantity_input).clear().type(2)
+         // button Add to cart
+         
+         cy.get(dataIdElemnt.button_Add_cart).click()
+         cy.wait(5000)
+         cy.contains(data_test.added)
+         cy.contains(data_test.product_added)
+         cy.contains(data_test.view_cart)
+         cy.wait(3000)
+         // button Continue Shopping sur la modal
+         cy.get(dataIdElemnt.footer).click()
+         // fin de l ajout
+ 
+          // button Cart sur le header
+          cy.get(dataIdElemnt.button_cart).click()
+          // button Proceed
+          cy.get(dataIdElemnt.button_proceed).click()
+          // element sur la page View_cart
+          cy.get(dataIdElemnt.element_page_view).then(()=>{
+           for(let elt of data_test.after_proceed_events){
+             cy.contains(elt).should('be.visible')
+           }
+          })
+           cy.get(dataIdElemnt.message).type(data_test.signup_information.message)
+          // button place order
+          cy.get(dataIdElemnt.button_place_order).click()
+          //page Payment
+          cy.get(dataIdElemnt.cart_items).then(()=>{
+           for(let elt of data_test.order_information){
+             cy.contains(elt).should('be.visible')
+           }
+        })
+        // l url de la page
+        cy.url().should('include','payment')
+        // formulaire
+        cy.get(dataIdElemnt.card_on_name).type(data_test.payment_form_elt.card_name)
+        cy.get(dataIdElemnt.card_on_number).type(data_test.payment_form_elt.number)
+        cy.get(dataIdElemnt.cvc).type(data_test.payment_form_elt.cvc)
+        cy.get(dataIdElemnt.expiry_month).type(data_test.payment_form_elt.month)
+        cy.get(dataIdElemnt.expiry_year).type(data_test.payment_form_elt.year)
+ 
+        //button pay and comfirm order
+        cy.get(dataIdElemnt.pay_button).click()
+        cy.get(dataIdElemnt.form).then(()=>{
+        for(let elt of data_test.success_payment){
+          cy.contains(elt).should('be.visible')
+        }
+        })
+        //button invoice
+        cy.get(dataIdElemnt.button_invoice).should('be.visible')
+        //button continued
+        cy.get(dataIdElemnt.button_continue).should('be.visible')
+            
+            
+      })
 
         
     })
-})
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  })
